@@ -1,0 +1,45 @@
+poll_seconds: 240
+
+rss:
+  - name: "CISA Alerts"
+    url: "https://www.cisa.gov/news-events/alerts/rss.xml"
+
+  - name: "MSRC"
+    url: "https://msrc.microsoft.com/blog/feed/"
+
+  - name: "Azure Updates"
+    url: "https://azure.microsoft.com/en-us/updates/feed/"
+
+  - name: "Krebs on Security"
+    url: "https://krebsonsecurity.com/feed/"
+
+  - name: "The Hacker News"
+    url: "https://feeds.feedburner.com/TheHackersNews"
+
+  - name: "Myrtle Beach Local"
+    url: "https://www.myrtlebeachonline.com/news/local/?outputType=xml"
+
+  - name: "Google News - Eminem"
+    url: "https://news.google.com/rss/search?q=Eminem"
+
+github:
+  - owner: "dotnet"
+    repo: "runtime"
+    watch: ["releases"]
+
+  - owner: "Azure"
+    repo: "azure-rest-api-specs"
+    watch: ["releases"]
+
+youtube:
+  - name: "Formula 1"
+    channel_id: "UCB_qr75-ydFVKSF9Dmo6izg"
+
+  - name: "OZ EVE"
+    channel_id: "UCmLw7O3qM3Nn2Z2K9cPz0FQ"
+
+  - name: "Law VS"
+    channel_id: "UCd6Yq8C1k9C0zCj0yG0x2LQ"
+
+  - name: "Pixx08"
+    channel_id: "UCQn6cXH1nQpY7pF2WnJvL6A"
