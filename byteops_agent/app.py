@@ -22,10 +22,19 @@ logging.basicConfig(level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
 
 ROOT = Path(__file__).resolve().parent.parent
-WATCHLIST_PATH = ROOT / "config" / "watchlist.yaml"
-POLICY_PATH = ROOT / "config" / "policy.yaml"
-DATA_DIR = ROOT / "data"
-DB_PATH = DATA_DIR / "agent.db"
+
+
+def _path_from_env(name: str, default: Path) -> Path:
+    override = os.getenv(name)
+    if not override:
+        return default
+    return Path(override).expanduser().resolve()
+
+
+WATCHLIST_PATH = _path_from_env("BYTEOPS_WATCHLIST_PATH", ROOT / "config" / "watchlist.yaml")
+POLICY_PATH = _path_from_env("BYTEOPS_POLICY_PATH", ROOT / "config" / "policy.yaml")
+DATA_DIR = _path_from_env("BYTEOPS_DATA_DIR", ROOT / "data")
+DB_PATH = _path_from_env("BYTEOPS_DB_PATH", DATA_DIR / "agent.db")
 
 
 def _load_runtime() -> tuple[AgentConfig, Storage, AlertManager]:
