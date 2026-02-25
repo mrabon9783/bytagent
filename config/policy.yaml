@@ -1,0 +1,28 @@
+defaults:
+  local_only: true
+  timezone: "America/New_York"
+  poll_jitter_seconds: 10
+
+notifications:
+  enabled: true
+  desktop:
+    provider: "plyer"
+    windows_preferred: true
+  tts:
+    enabled: false
+    engine: "pyttsx3"
+    voice_hint: "zira"
+    cooldown_seconds: 120
+
+filtering:
+  min_severity: "low"
+  include_keywords: []
+  exclude_keywords: []
+
+routing:
+  rss:
+    enabled: true
+  github:
+    enabled: true
+  youtube:
+    enabled: true
