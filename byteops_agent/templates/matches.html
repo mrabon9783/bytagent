@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ByteOps Agent - Policy Matches</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 24px; background: #f8fafc; color: #0f172a; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 14px; }
+    .meta { color: #334155; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Policy Matches</h1>
+  <p><a href="/dashboard/events">Back to all events</a></p>
+  <ul>
+    {% for event in events %}
+    <li>
+      <a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.title }}</a>
+      <div class="meta">{{ event.created_at }} • {{ event.source_type }} / {{ event.source_name }} • severity: {{ event.severity }}</div>
+      <div class="meta">reason: {{ event.match_reason }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ByteOps Agent - Recent Events</title>
+  <style>
+    body { font-family: Segoe UI, Arial, sans-serif; margin: 24px; background: #f8fafc; color: #0f172a; }
+    table { width: 100%; border-collapse: collapse; background: white; }
+    th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    th { background: #e2e8f0; }
+    .sev-critical { color: #b91c1c; font-weight: 700; }
+    .sev-high { color: #c2410c; font-weight: 700; }
+    .sev-medium { color: #a16207; font-weight: 700; }
+    .pill { padding: 2px 8px; border-radius: 999px; background: #e2e8f0; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Recent Events</h1>
+  <p><a href="/dashboard/matches">View policy matches</a></p>
+  <table>
+    <thead>
+      <tr><th>Time</th><th>Source</th><th>Severity</th><th>Title</th><th>Policy</th></tr>
+    </thead>
+    <tbody>
+    {% for event in events %}
+      <tr>
+        <td>{{ event.created_at }}</td>
+        <td><span class="pill">{{ event.source_type }}</span> {{ event.source_name }}</td>
+        <td class="sev-{{ event.severity }}">{{ event.severity }}</td>
+        <td><a href="{{ event.url }}" target="_blank" rel="noreferrer">{{ event.title }}</a></td>
+        <td>{{ "matched" if event.matched else "not matched" }} ({{ event.match_reason }})</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>
